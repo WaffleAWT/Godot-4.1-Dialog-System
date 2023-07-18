@@ -1,0 +1,100 @@
+[gd_scene load_steps=6 format=3 uid="uid://cbumgfqfxlaac"]
+
+[ext_resource type="Script" path="res://Scripts/Dialog/dialog_ui.gd" id="1_3s2ue"]
+[ext_resource type="FontFile" uid="uid://ugqgnwuwxm28" path="res://Fonts/Tektur/Tektur-VariableFont_wdth,wght.ttf" id="2_112yf"]
+
+[sub_resource type="Animation" id="Animation_jwaax"]
+resource_name = "Default"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(418, 161), Vector2(418, 157), Vector2(418, 161)]
+}
+
+[sub_resource type="Animation" id="Animation_j7vqb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(418, 161)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_moyas"]
+_data = {
+"Default": SubResource("Animation_jwaax"),
+"RESET": SubResource("Animation_j7vqb")
+}
+
+[node name="DialogUI" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 256
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 16
+script = ExtResource("1_3s2ue")
+
+[node name="Box" type="ColorRect" parent="."]
+layout_mode = 2
+
+[node name="Name" type="RichTextLabel" parent="Box"]
+layout_mode = 1
+offset_left = 5.0
+offset_right = 223.0
+offset_bottom = 32.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.588235, 0.521569, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/normal_font = ExtResource("2_112yf")
+theme_override_font_sizes/normal_font_size = 22
+text = "Character Name"
+
+[node name="Text" type="RichTextLabel" parent="Box"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 33.0
+offset_right = -39.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_112yf")
+theme_override_font_sizes/normal_font_size = 12
+text = "Dialog and character talk goes here."
+
+[node name="Polygon2D" type="Polygon2D" parent="Box"]
+position = Vector2(418, 161)
+scale = Vector2(0.5, 0.5)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(166, -157, 154, -179, 181, -179)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Box/Polygon2D"]
+autoplay = "Default"
+libraries = {
+"": SubResource("AnimationLibrary_moyas")
+}
+
+[node name="Timer" type="Timer" parent="Box"]
+
+[connection signal="timeout" from="Box/Timer" to="." method="_on_timer_timeout"]
