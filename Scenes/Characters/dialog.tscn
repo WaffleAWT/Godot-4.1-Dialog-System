@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnjymkp22qpiq"]
+
+[ext_resource type="Script" path="res://Scripts/Characters/npc.gd" id="1_5g3kr"]
+[ext_resource type="PackedScene" uid="uid://cbumgfqfxlaac" path="res://Scenes/Dialog/dialog_ui.tscn" id="2_a2v3h"]
+
+[node name="Dialog" type="Area2D"]
+script = ExtResource("1_5g3kr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="DialogUI" parent="CanvasLayer" instance=ExtResource("2_a2v3h")]
+visible = false
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
