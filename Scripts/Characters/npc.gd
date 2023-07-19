@@ -11,6 +11,6 @@ func _on_body_exited(_body):
 	can_see_body = false
 
 func _process(_delta):
-	if Input.is_action_just_pressed("interact") and can_see_body and dialog_ui != null:
+	if Input.is_action_just_pressed("interact") and can_see_body and dialog_ui != null and not dialog_ui.visible:
 		dialog_ui.visible = true
 		dialog_ui.dialog_text.visible_characters = 0

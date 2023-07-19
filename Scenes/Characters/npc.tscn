@@ -10,17 +10,20 @@ radius = 34.0147
 
 [sub_resource type="Resource" id="Resource_2vwux"]
 script = ExtResource("5_cyj57")
-text = "Hey! this is a dialog test."
+character_name = "NPC"
+text = "Hey! this is a dialog test, how are you traveler!"
 
 [sub_resource type="Resource" id="Resource_fi4y8"]
 script = ExtResource("5_cyj57")
-text = "How you doing traveler?"
+character_name = "Player"
+text = "I'm fine, dummy!"
 
 [node name="NPC" type="Area2D"]
 script = ExtResource("1_qowd7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_w8tia")
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -31,7 +34,6 @@ shape = SubResource("CircleShape2D_wnbli")
 [node name="DialogUI" parent="CanvasLayer" instance=ExtResource("3_5qlqd")]
 visible = false
 dialogs = Array[ExtResource("5_cyj57")]([SubResource("Resource_2vwux"), SubResource("Resource_fi4y8")])
-character_name = "NPC"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
