@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmkh08ptg7ndw"
-path="res://.godot/imported/NPC7.png-e7ab1d0b98b36fcf3f654482c9ef55a1.ctex"
+uid="uid://dv5lvx1ryp0g"
+path="res://.godot/imported/Triangle.png-e15b9f9592f5cd8f4525ba53fe95ddca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/NPC/NPC7.png"
-dest_files=["res://.godot/imported/NPC7.png-e7ab1d0b98b36fcf3f654482c9ef55a1.ctex"]
+source_file="res://Textures/UI/Triangle.png"
+dest_files=["res://.godot/imported/Triangle.png-e15b9f9592f5cd8f4525ba53fe95ddca.ctex"]
 
 [params]
 

@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://nld405h0ul6w"
-path="res://.godot/imported/Tektur_SemiCondensed-ExtraBold.ttf-84abc572865184c2c23f802de90ba86b.fontdata"
+uid="uid://gwm7lpvo6k2n"
+path="res://.godot/imported/Arcadia-Regular.ttf-b3b6a4f2a85e78f656270d36708d583f.fontdata"
 
 [deps]
 
-source_file="res://Fonts/Tektur/static/Tektur_SemiCondensed-ExtraBold.ttf"
-dest_files=["res://.godot/imported/Tektur_SemiCondensed-ExtraBold.ttf-84abc572865184c2c23f802de90ba86b.fontdata"]
+source_file="res://Fonts/Arcadia-Regular.ttf"
+dest_files=["res://.godot/imported/Arcadia-Regular.ttf-b3b6a4f2a85e78f656270d36708d583f.fontdata"]
 
 [params]
 

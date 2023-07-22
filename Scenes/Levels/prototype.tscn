@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bvt0gdpjsxa8b" path="res://Scenes/Characters/player.tscn" id="1_g413j"]
 [ext_resource type="Texture2D" uid="uid://cmk8fof1m3j3l" path="res://Textures/Prototype/Grass.png" id="1_yyykj"]
-[ext_resource type="Texture2D" uid="uid://ddkskcwvn4k5o" path="res://Textures/NPC/NPC1.png" id="2_2ebla"]
+[ext_resource type="Texture2D" uid="uid://b6idfaj8kfi1d" path="res://Textures/NPC/NPC.png" id="2_1xw1v"]
 [ext_resource type="PackedScene" uid="uid://cnjymkp22qpiq" path="res://Scenes/Characters/dialog.tscn" id="3_mowbw"]
 [ext_resource type="Script" path="res://Scripts/Dialog/dialog.gd" id="4_a512i"]
 
@@ -37,7 +37,7 @@ layer_0/tile_data = PackedInt32Array(-2490432, 0, 0, -2424896, 0, 0, -2359360, 0
 
 [node name="NPC" type="Sprite2D" parent="."]
 position = Vector2(508, 54)
-texture = ExtResource("2_2ebla")
+texture = ExtResource("2_1xw1v")
 flip_h = true
 
 [node name="Dialog" parent="NPC" instance=ExtResource("3_mowbw")]
@@ -50,13 +50,13 @@ shape = SubResource("CircleShape2D_br4rm")
 dialogs = Array[ExtResource("4_a512i")]([SubResource("Resource_q2cle"), SubResource("Resource_f03n4")])
 
 [node name="Player" parent="." instance=ExtResource("1_g413j")]
-position = Vector2(309, 172)
+position = Vector2(320, 180)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(309, 172)
+position = Vector2(320, 180)
 zoom = Vector2(2, 2)
 process_callback = 0
 position_smoothing_enabled = true

@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://cbumgfqfxlaac"]
+[gd_scene load_steps=8 format=3 uid="uid://cbumgfqfxlaac"]
 
 [ext_resource type="Script" path="res://Scripts/Dialog/dialog_ui.gd" id="1_3s2ue"]
-[ext_resource type="FontFile" uid="uid://ugqgnwuwxm28" path="res://Fonts/Tektur/Tektur-VariableFont_wdth,wght.ttf" id="2_112yf"]
 [ext_resource type="Texture2D" uid="uid://cgce73ri65sju" path="res://Textures/UI/UI Box.png" id="2_228n1"]
+[ext_resource type="FontFile" uid="uid://gwm7lpvo6k2n" path="res://Fonts/Arcadia-Regular.ttf" id="3_17w34"]
+[ext_resource type="Texture2D" uid="uid://dv5lvx1ryp0g" path="res://Textures/UI/Triangle.png" id="4_agka0"]
 
-[sub_resource type="Animation" id="Animation_jwaax"]
-resource_name = "Default"
+[sub_resource type="Animation" id="Animation_5drla"]
+resource_name = "Loop"
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -17,10 +18,10 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(416, 161), Vector2(416, 157), Vector2(416, 161)]
+"values": [Vector2(501, 77), Vector2(501, 73), Vector2(501, 77)]
 }
 
-[sub_resource type="Animation" id="Animation_j7vqb"]
+[sub_resource type="Animation" id="Animation_kb235"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -32,13 +33,13 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(418, 161)]
+"values": [Vector2(501, 77)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_moyas"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x0f7p"]
 _data = {
-"Default": SubResource("Animation_jwaax"),
-"RESET": SubResource("Animation_j7vqb")
+"Loop": SubResource("Animation_5drla"),
+"RESET": SubResource("Animation_kb235")
 }
 
 [node name="DialogUI" type="MarginContainer"]
@@ -54,7 +55,6 @@ theme_override_constants/margin_bottom = 16
 script = ExtResource("1_3s2ue")
 
 [node name="Box" type="NinePatchRect" parent="."]
-self_modulate = Color(1, 1, 1, 0.588235)
 layout_mode = 2
 texture = ExtResource("2_228n1")
 region_rect = Rect2(0, 0, 32, 32)
@@ -66,13 +66,14 @@ patch_margin_bottom = 27
 [node name="Name" type="RichTextLabel" parent="Box"]
 layout_mode = 1
 offset_left = 5.0
-offset_right = 223.0
-offset_bottom = 32.0
+offset_top = 5.0
+offset_right = 250.0
+offset_bottom = 23.0
 theme_override_colors/default_color = Color(0.246094, 0.15625, 0.195313, 1)
 theme_override_colors/font_outline_color = Color(0.890625, 0.648438, 0.445313, 1)
 theme_override_constants/outline_size = 4
-theme_override_fonts/normal_font = ExtResource("2_112yf")
-theme_override_font_sizes/normal_font_size = 22
+theme_override_fonts/normal_font = ExtResource("3_17w34")
+theme_override_font_sizes/normal_font_size = 16
 text = "Character Name"
 
 [node name="Text" type="RichTextLabel" parent="Box"]
@@ -80,8 +81,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 12.0
-offset_top = 33.0
+offset_left = 8.0
+offset_top = 29.0
 offset_right = -22.0
 offset_bottom = -7.0
 grow_horizontal = 2
@@ -89,20 +90,19 @@ grow_vertical = 2
 theme_override_colors/default_color = Color(0.246094, 0.15625, 0.195313, 1)
 theme_override_colors/font_outline_color = Color(0.894531, 0.6875, 0.496094, 1)
 theme_override_constants/outline_size = 2
-theme_override_fonts/normal_font = ExtResource("2_112yf")
-theme_override_font_sizes/normal_font_size = 12
+theme_override_fonts/normal_font = ExtResource("3_17w34")
+theme_override_font_sizes/normal_font_size = 11
 text = "Dialog and character talk goes here."
 
-[node name="Polygon2D" type="Polygon2D" parent="Box"]
-position = Vector2(418, 161)
+[node name="Triangle" type="Sprite2D" parent="Box"]
+position = Vector2(501, 77)
 scale = Vector2(0.5, 0.5)
-color = Color(0.246094, 0.15625, 0.195313, 1)
-polygon = PackedVector2Array(166, -157, 154, -179, 181, -179)
+texture = ExtResource("4_agka0")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Box/Polygon2D"]
-autoplay = "Default"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Box/Triangle"]
+autoplay = "Loop"
 libraries = {
-"": SubResource("AnimationLibrary_moyas")
+"": SubResource("AnimationLibrary_x0f7p")
 }
 
 [node name="Timer" type="Timer" parent="Box"]
